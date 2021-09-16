@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-hardler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Inicial from './src/view/Inicial/Inicial';
+import colecao from './src/view/colecao/colecao';
+import Item from './src/view/Item/Item';
 
-export default function App() {
+const Stack = createStackNavigator();
+export default function app(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.screen name='Inicial' component={Inicial} />
+      <Stack.screen name='colecao' component={colecao} />
+      <Stack.screen name='Item' component={colecao} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
